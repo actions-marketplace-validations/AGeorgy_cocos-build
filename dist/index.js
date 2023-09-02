@@ -75,7 +75,7 @@ function run() {
                 const ccZipPath = yield tool_cache_1.downloadTool(darwin, `CocosCreator_V${version}.zip`);
                 yield tool_cache_1.extractZip(`${ccZipPath}`, './');
                 yield exec_1.exec(`open ./CocosCreator.app`);
-                yield exec_1.exec(`./CocosCreator.app/Contents/MacOS/CocosCreator --path ${projectPath} --build "platform=${platform};buildPath=${buildPath}"`);
+                yield exec_1.exec(`./CocosCreator.app/Contents/MacOS/CocosCreator --project ${projectPath} --build "platform=${platform};buildPath=${buildPath}"`);
                 const artifactClient = artifact.create();
                 const artifactName = 'cocos-build-package';
                 const patterns = `${buildPath}/${platform}`;
