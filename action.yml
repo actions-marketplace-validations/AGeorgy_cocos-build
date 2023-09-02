@@ -25,6 +25,11 @@ inputs:
     description: 'project path for build'
     default: './'
 
+  config_path:
+    required: false
+    description: 'project path for build config'
+    default: './'
+
   platform:
     required: false
     description: 'platform to build'

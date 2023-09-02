@@ -26,6 +26,7 @@ async function run(): Promise<void> {
     const cocosVersion = core.getInput('cocos_version')
     const cocosType = core.getInput('cocos_type')
     const projectPath = core.getInput('project_path')
+    const configPath = core.getInput('config_path')
     const platform = core.getInput('platform')
     const buildPath = core.getInput('build_path')
     try {
@@ -44,7 +45,7 @@ async function run(): Promise<void> {
       await extractZip(`${ccZipPath}`, './')
       await exec(`open ./CocosCreator.app`)
       await exec(
-        `./CocosCreator.app/Contents/MacOS/CocosCreator --project ${projectPath} --build "platform=${platform};buildPath=${buildPath}"`
+        `./CocosCreator.app/Contents/MacOS/CocosCreator --project ${projectPath} --build "platform=${platform};buildPath=${buildPath};configPath=${configPath}"`
       )
       const artifactClient = artifact.create()
       const artifactName = 'cocos-build-package'
